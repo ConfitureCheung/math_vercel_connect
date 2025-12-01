@@ -1,7 +1,12 @@
 from flask import Flask, render_template
 from pathlib import Path
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__,
+    template_folder=os.path.join(os.path.dirname(__file__), '../templates'),
+    static_folder=os.path.join(os.path.dirname(__file__), '../images'),
+    static_url_path='/images'
+)
 
 # Define all available pages (can extend up to 100)
 AVAILABLE_PAGES = {
@@ -77,3 +82,4 @@ def page_010():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
