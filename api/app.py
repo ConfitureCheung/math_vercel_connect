@@ -4,13 +4,13 @@ import os
 
 app = Flask(__name__)
 
-# Get absolute paths for Vercel
-base_path = Path(__file__).parent.parent  # Go up to root directory
+# # Get absolute paths for Vercel
+# base_path = Path(__file__).parent.parent  # Go up to root directory
 
-# Set template and static folders
-app.template_folder = str(base_path / 'templates')
-app.static_folder = str(base_path / 'public')  # Use 'public' folder instead
-app.static_url_path = '/public'
+# # Set template and static folders
+# app.template_folder = str(base_path / 'templates')
+# app.static_folder = str(base_path / 'public')  # Use 'public' folder instead
+# app.static_url_path = '/public'
 
 # Define all available pages (can extend up to 100)
 AVAILABLE_PAGES = {
@@ -87,3 +87,4 @@ def page_010():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
