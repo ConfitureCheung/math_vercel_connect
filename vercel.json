@@ -1,12 +1,12 @@
 {
-    "version": 2,
-    "public": true,
-    "builds": [
-        {"src": "app.py", "use": "@vercel/python"}
-    ],
-    "routes": [
-        {"src": "/(.*)", "dest": "app.py"}
-    ]
-
+  "buildCommand": "pip install -r requirements.txt && cp -r images public",
+  "outputDirectory": ".",
+  "public": true,
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "python3.9"
+    }
+  }
 }
+
 
