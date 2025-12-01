@@ -2,12 +2,15 @@ from flask import Flask, render_template
 from pathlib import Path
 import os
 
-# app = Flask(__name__)
-app = Flask(__name__,
-    template_folder=os.path.join(os.path.dirname(__file__), '../templates'),
-    static_folder=os.path.join(os.path.dirname(__file__), '../images'),
-    static_url_path='/images'
-)
+app = Flask(__name__)
+
+# Get absolute paths for Vercel
+base_path = Path(__file__).parent.parent  # Go up to root directory
+
+# Set template and static folders
+app.template_folder = str(base_path / 'templates')
+app.static_folder = str(base_path / 'public')  # Use 'public' folder instead
+app.static_url_path = '/public'
 
 # Define all available pages (can extend up to 100)
 AVAILABLE_PAGES = {
@@ -82,4 +85,5 @@ def page_010():
     return render_template('010.html')
 
 if __name__ == '__main__':
+
     app.run(debug=True)
