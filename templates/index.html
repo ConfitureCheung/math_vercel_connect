@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Questions</title>
+    <style>
+        body {
+            font-size: 18px;
+            text-align: left;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+            padding: 8px 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            padding: 10px 15px;
+            border: 2px solid #0066cc;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 5px 2px;
+        }
+        a:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+        .disabled {
+            color: #999999;
+            border-color: #cccccc;
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+            text-decoration: line-through;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 2px;
+        }
+        .disabled:hover {
+            background-color: #f0f0f0;
+            color: #999999;
+        }
+        .info {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+        .info p {
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Math Questions Portal</h1>
+        <p>Select a question set to view</p>
+    </div>
+
+    <div>
+        <ul>
+            <li><a href="">🏠 Home</a></li>
+            {% for page_num in range(1, 11) %}
+                {% set page_id = 'page_%03d' % page_num %}
+                {% if page_id in available_pages %}
+                    <li><a href="{{ page_id }}">P.{{ '%03d' % page_num }}</a></li>
+                {% else %}
+                    <li><span class="disabled">P.{{ '%03d' % page_num }}</span></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="info">
+        <p><strong>✓ Blue buttons:</strong> Click to view questions</p>
+        <p><strong>✗ Gray buttons:</strong> Coming soon</p>
+    </div>
+</body>
+</html>

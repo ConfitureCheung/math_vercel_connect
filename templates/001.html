@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數學題目</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .question {
+            margin-bottom: 80px;
+            padding: 30px;
+            background-color: #fafafa;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .question-number span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .question-content {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .question-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .question-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: white;
+        }
+
+        .question-image-caption {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .separator {
+            height: 120px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .separator::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                #bdc3c7,
+                #bdc3c7 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .separator-text {
+            background-color: white;
+            padding: 0 15px;
+            color: #7f8c8d;
+            font-size: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .options {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .option:hover {
+            background-color: #ecf0f1;
+            border-color: #3498db;
+        }
+
+        .option-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 5px;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 20px;
+                box-shadow: none;
+            }
+
+            .question {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 20px;
+                margin-bottom: 60px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>數學練習題</h1>
+            <p>評估日期: 2025年12月 | 難度: 中級</p>
+        </div>
+
+        <!-- 第一題 -->
+        <div class="question">
+            <div class="question-number">
+                <span>1</span>
+                <div>圖形面積問題</div>
+            </div>
+
+            <div class="question-content">
+                下圖顯示一個長方形，其中長度為 12 公分，寬度為 8 公分。求該長方形的周長。
+            </div>
+
+            <div class="question-image">
+                <img src="../images/001_q1.png" alt="長方形圖表">
+                <div class="question-image-caption">圖表 1: 長方形示意圖 (長 = 12 公分，寬 = 8 公分)</div>
+            </div>
+
+            <div class="question-content">
+                <strong>選擇正確答案:</strong>
+            </div>
+
+            <div class="options">
+                <div class="option">
+                    <span class="option-label">A)</span> 20 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">B)</span> 40 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">C)</span> 60 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">D)</span> 96 公分
+                </div>
+            </div>
+        </div>
+
+        <!-- 分隔線 (5條線以上的空白) -->
+        <div class="separator">
+            <div class="separator-text">～～～～～ 題目分隔 ～～～～～</div>
+        </div>
+
+        <!-- 第二題 -->
+        <div class="question">
+            <div class="question-number">
+                <span>2</span>
+                <div>三角形面積與周長</div>
+            </div>
+
+            <div class="question-content">
+                下圖為一個直角三角形，其中兩個直角邊分別為 5 公分和 12 公分。根據勾股定理，求斜邊的長度，然後計算三角形的周長。
+            </div>
+
+            <div class="question-image">
+                <img src="../images/001_q2.png" alt="直角三角形圖表">
+                <div class="question-image-caption">圖表 2: 直角三角形示意圖 (直角邊 = 5 公分、12 公分)</div>
+            </div>
+
+            <div class="question-content">
+                <strong>選擇正確答案:</strong>
+            </div>
+
+            <div class="options">
+                <div class="option">
+                    <span class="option-label">A)</span> 17 公分 / 周長 30 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">B)</span> 13 公分 / 周長 30 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">C)</span> 15 公分 / 周長 32 公分
+                </div>
+                <div class="option">
+                    <span class="option-label">D)</span> 20 公分 / 周長 37 公分
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="/" class="footer-button">← 返回首頁 (Back to Home)</a>
+        </div>
+    </div>
+</body>
+</html>
