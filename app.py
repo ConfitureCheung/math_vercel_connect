@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from pathlib import Path
 
 app = Flask(__name__)
@@ -28,6 +28,11 @@ def get_available_pages():
             available[page_id] = filename
 
     return available
+
+@app.route('/images/<filename>')
+def serve_image(filename):
+    """Serve images from the images folder"""
+    return send_from_directory('images', filename)
 
 @app.route('/')
 def index():
@@ -78,4 +83,5 @@ def page_010():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
 
