@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>數學題目</title>
+    <title>主項變換示例</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,7 @@
         }
 
         .container {
+            position: relative;
             max-width: 900px;
             margin: 0 auto;
             background-color: white;
@@ -46,8 +47,18 @@
             font-size: 14px;
         }
 
+        .reference {
+            position: absolute;
+            top: 90px;
+            left: 40px;
+            font-size: 12px;
+            color: #7f8c8d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
         .question {
-            margin-bottom: 80px;
+            margin-bottom: 50px;
             padding: 30px;
             background-color: #fafafa;
             border-left: 5px solid #3498db;
@@ -55,118 +66,137 @@
             page-break-inside: avoid;
         }
 
-        .question:last-child {
-            margin-bottom: 0;
-        }
-
-        .question-number {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .question-number span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 50%;
-            margin-right: 10px;
+        .question h2 {
             font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .question-content {
+        .formula-display {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 20px;
+            color: #2c3e50;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        .objective {
             font-size: 16px;
             color: #2c3e50;
             line-height: 1.9;
-            margin-bottom: 15px;
-        }
-
-        .question-image {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .question-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            border: 1px solid #bdc3c7;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #f39c12;
             border-radius: 4px;
-            padding: 5px;
-            background-color: white;
         }
 
-        .question-image-caption {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        .separator {
-            height: 120px;
-            margin: 40px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .separator::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: repeating-linear-gradient(
-                90deg,
-                #bdc3c7,
-                #bdc3c7 10px,
-                transparent 10px,
-                transparent 20px
-            );
-        }
-
-        .separator-text {
-            background-color: white;
-            padding: 0 15px;
-            color: #7f8c8d;
-            font-size: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .options {
-            margin-top: 15px;
+        .solutions-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .option {
-            padding: 10px 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-color: white;
+        .solution {
+            border: 2px dashed #3498db;
+            padding: 25px;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            page-break-inside: avoid;
         }
 
-        .option:hover {
-            background-color: #ecf0f1;
-            border-color: #3498db;
-        }
-
-        .option-label {
-            font-weight: bold;
+        .solution h3 {
+            font-size: 16px;
             color: #2c3e50;
-            margin-right: 5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .solution-step {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        .solution-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .equation {
+            background-color: white;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        
+        .step-text {
+            font-size: 14px;
+            color: #555;
+            margin: 8px 0 8px 15px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .fraction {
+            display: inline-block;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .fraction-numerator {
+            padding: 5px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #27ae60;
+            border-bottom: 2px solid #27ae60;
+        }
+
+        .fraction-denominator {
+            padding: 5px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #27ae60;
+        }
+
+        .final-answer {
+            background-color: #e8f4f8;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #27ae60;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .solutions-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .solution {
+                padding: 20px;
+            }
         }
 
         @media print {
@@ -185,109 +215,73 @@
                 page-break-inside: avoid;
             }
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            .question {
-                padding: 20px;
-                margin-bottom: 60px;
-            }
-
-            .options {
-                grid-template-columns: 1fr;
-            }
-
-            .header h1 {
-                font-size: 22px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>數學練習題</h1>
-            <p>評估日期: 2025年12月 | 難度: 中級</p>
-        </div>
-
-        <!-- 第一題 -->
+            <h1>主項變換</h1>
+        </div>        
+        <div class="reference">REF. 2005 I 1 近似例子</div>
         <div class="question">
-            <div class="question-number">
-                <span>1</span>
-                <div>圖形面積問題</div>
-            </div>
-
-            <div class="question-content">
-                下圖顯示一個長方形，其中長度為 12 公分，寬度為 8 公分。求該長方形的周長。
-            </div>
-
-            <div class="question-image">
-                <!-- <img src="../images/001_q1.png" alt="長方形圖表"> -->
-                <img src="/images/001_q1.png" alt="長方形圖表">
-                <div class="question-image-caption">圖表 1: 長方形示意圖 (長 = 12 公分，寬 = 8 公分)</div>
-            </div>
-
-            <div class="question-content">
-                <strong>選擇正確答案:</strong>
-            </div>
-
-            <div class="options">
-                <div class="option">
-                    <span class="option-label">A)</span> 20 公分
-                </div>
-                <div class="option">
-                    <span class="option-label">B)</span> 40 公分
-                </div>
-                <div class="option">
-                    <span class="option-label">C)</span> 60 公分
-                </div>
-                <div class="option">
-                    <span class="option-label">D)</span> 96 公分
-                </div>
+            <h2>題目</h2>
+            <div class="objective">
+                令 <strong>a</strong> 成為公式 <strong>P = ab + 2bc + 5ac</strong> 的主項。
             </div>
         </div>
 
-        <!-- 分隔線 (5條線以上的空白) -->
-        <div class="separator">
-            <div class="separator-text">～～～～～ 題目分隔 ～～～～～</div>
-        </div>
+        <div class="solutions-container">
+            <!-- 方法一 -->
+            <div class="solution">
+                <h3>方法一</h3>
 
-        <!-- 第二題 -->
-        <div class="question">
-            <div class="question-number">
-                <span>2</span>
-                <div>三角形面積與周長</div>
-            </div>
-
-            <div class="question-content">
-                下圖為一個直角三角形，其中兩個直角邊分別為 5 公分和 12 公分。根據勾股定理，求斜邊的長度，然後計算三角形的周長。
-            </div>
-
-            <div class="question-image">
-                <!-- <img src="../images/001_q2.png" alt="直角三角形圖表"> -->
-                <img src="/images/001_q2.png" alt="直角三角形圖表">
-                <div class="question-image-caption">圖表 2: 直角三角形示意圖 (直角邊 = 5 公分、12 公分)</div>
-            </div>
-
-            <div class="question-content">
-                <strong>選擇正確答案:</strong>
-            </div>
-
-            <div class="options">
-                <div class="option">
-                    <span class="option-label">A)</span> 17 公分 / 周長 30 公分
+                <div class="solution-step">
+                    <div class="equation">ab + 2bc + 5ac = P</div>
                 </div>
-                <div class="option">
-                    <span class="option-label">B)</span> 13 公分 / 周長 30 公分
+
+                <div class="solution-step">
+                    <div class="equation">ab + 5ac = 2bc − P</div>
                 </div>
-                <div class="option">
-                    <span class="option-label">C)</span> 15 公分 / 周長 32 公分
+
+                <div class="solution-step">
+                    <div class="equation">a(b + 5c) = 2bc − P</div>
                 </div>
-                <div class="option">
-                    <span class="option-label">D)</span> 20 公分 / 周長 37 公分
+
+                <div class="solution-step">
+                    <div class="final-answer">
+                        a = 
+                        <div class="fraction">
+                            <div class="fraction-numerator">P − 2bc</div>
+                            <div class="fraction-denominator">b + 5c</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 方法二 -->
+            <div class="solution">
+                <h3>方法二</h3>
+
+                <div class="solution-step">
+                    <div class="equation">P = ab + 2bc + 5ac</div>
+                </div>
+
+                <div class="solution-step">
+                    <div class="equation">P − 2bc = ab + 5ac</div>
+                </div>
+
+                <div class="solution-step">
+                    <div class="equation">2bc − P = a(b + 5c)</div>
+                </div>
+
+                <div class="solution-step">
+                    <div class="final-answer">
+                        a = 
+                        <div class="fraction">
+                            <div class="fraction-numerator">P − 2bc</div>
+                            <div class="fraction-denominator">b + 5c</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -297,6 +291,3 @@
     </div>
 </body>
 </html>
-
-
-
