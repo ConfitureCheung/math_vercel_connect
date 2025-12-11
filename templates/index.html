@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,13 +72,13 @@
 </head>
 <body>
     <div class="header">
-        <h1>📚 Math Questions Portal</h1>
-        <p>Select a question set to view</p>
+        <h1>📚 數學題目網站入口</h1>
+        <p>類別: 主項變換</p>
     </div>
 
     <div>
         <ul>
-            <li><a href="">🏠 Home</a></li>
+            <li><a href="">🏠 首頁</a></li>
             {% for page_num in range(1, 11) %}
                 {% set page_id = 'page_%03d' % page_num %}
                 {% if page_id in available_pages %}
@@ -92,8 +91,8 @@
     </div>
 
     <div class="info">
-        <p><strong>✓ Blue buttons:</strong> Click to view questions</p>
-        <p><strong>✗ Gray buttons:</strong> Coming soon</p>
+        <p><strong>✓ 藍色按鈕：</strong> 點擊查看題目</p>
+        <p><strong>✗ 灰色按鈕：</strong> 即將推出</p>
     </div>
 </body>
 </html>
